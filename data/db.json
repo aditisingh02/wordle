@@ -1,0 +1,7 @@
+{
+  "solutions": [
+    { "word": "hello", "id": 1 },
+    { "word": "adieu", "id": 2 },
+    { "word": "howdy", "id": 3 }
+  ]
+}
