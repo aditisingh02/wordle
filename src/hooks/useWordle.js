@@ -3,7 +3,7 @@ import { useState } from "react";
 const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, setGuesses] = useState([]);
+  const [guesses, setGuesses] = useState([...Array(6)]);
   const [history, setHistory] = useState(["hello"]);
   const [isCorrect, setIsCorrect] = useState(false);
 
@@ -31,7 +31,26 @@ const useWordle = (solution) => {
 
     return guessArr;
   };
-  const addNewGuess = () => {};
+  //add new guess to guesses array
+  const addNewGuess = (guessArr) => {
+    if (currentGuess === solution) {
+      setIsCorrect(true);
+    }
+    setGuesses((prevGuesses) => {
+      let newGuesses = [...prevGuesses];
+      newGuesses[turn] = guessArr;
+      return newGuesses;
+    });
+
+    setHistory((prevhistory) => {
+      return [...prevhistory, currentGuess];
+    });
+
+    setTurn((prevTurn) => {
+      return prevTurn + 1;
+    });
+    setCurrentGuess("");
+  };
   const handleKeyup = ({ key }) => {
     if (key === "Enter") {
       // Check if the turn is less than 5
