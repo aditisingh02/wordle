@@ -2,6 +2,8 @@ import { use } from "react";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Wordle from "./components/Wordle";
+import logo from "./assets/wordle.png";
+
 function App() {
   const [solution, setSolution] = useState("null");
   useEffect(() => {
@@ -14,7 +16,10 @@ function App() {
   }, [setSolution]);
   return (
     <div className="App">
-      <h1>Wordle</h1>
+      <h2>
+        <img src={logo} alt="Wordle" className="logo" />
+        <hr className="divider" />
+      </h2>
       {solution && <Wordle solution={solution} />}
     </div>
   );
