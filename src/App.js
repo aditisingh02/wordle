@@ -3,7 +3,6 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Wordle from "./components/Wordle";
 import logo from "./assets/wordle.png";
-
 function App() {
   const [solution, setSolution] = useState("null");
   useEffect(() => {
