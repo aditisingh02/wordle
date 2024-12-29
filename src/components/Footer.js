@@ -7,7 +7,7 @@ const Footer = () => {
       <p>
         Made with ❤️ by{" "}
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/aditisingh02"
           target="_blank"
           rel="noopener noreferrer"
         >
