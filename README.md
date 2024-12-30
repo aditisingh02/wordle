@@ -22,8 +22,16 @@ A React-based clone of the popular word guessing game Wordle.
 
 1. Clone the repository
 
+   HTTPS
+
 ```bash
-git clone https://github.com/yourusername/wordle-clone
+git clonehttps://github.com/aditisingh02/wordle.git
+```
+
+SSH
+
+```bash
+git clone git@github.com:aditisingh02/wordle.git
 ```
 
 2. Install dependencies
@@ -33,16 +41,16 @@ cd wordle-clone
 npm install
 ```
 
-3. Start JSON Server
-
-```bash
-npm run server
-```
-
-4. Start React app
+3. Start React app
 
 ```bash
 npm start
+```
+
+4. Start JSON Server
+
+```bash
+json-server ./data/db.json --port 3001
 ```
 
 ## Usage
@@ -52,8 +60,6 @@ npm start
 - Yellow tiles indicate correct letter in wrong position
 - Grey tiles indicate letter not in word
 - You have 6 attempts to guess the word
-
-## Screenshots
 
 ## Contributing
 
