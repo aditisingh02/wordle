@@ -65,10 +65,4 @@ json-server ./data/db.json --port 3001
 
 Pull requests are welcome. For major changes, please open an issue first.
 
-## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
-```
-
-```
