@@ -2,6 +2,10 @@
 
 A React-based clone of the popular word guessing game Wordle.
 
+
+https://github.com/user-attachments/assets/832502c3-d988-4e06-8189-9a6f5ce5b35a
+
+
 ## Features
 
 - Daily word challenges
