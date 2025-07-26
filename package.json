@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "react-wordle",
   "version": "0.1.0",
   "private": true,
@@ -6,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "json-server": "^1.0.0-beta.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -16,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch ./data/db.json --port 3001"
+    "server": "json-server --watch ./data/db.json --port 3001",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "start:prod": "json-server --watch ./data/db.json --port $PORT --host 0.0.0.0"
   },
   "eslintConfig": {
     "extends": [

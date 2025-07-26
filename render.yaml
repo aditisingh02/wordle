@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: wordle-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm run server
+    envVars:
+      - key: PORT
+        value: 3001
+
+  - type: web
+    name: wordle-frontend
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./build
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://wordle-api.onrender.com/*

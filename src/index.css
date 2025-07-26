@@ -1,20 +1,155 @@
+@font-face {
+  font-family: "nyt-franklin";
+  src: url("./assets/franklin-normal-900.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
 body {
   text-align: center;
   font-size: 1em;
-  font-family: Helvetica, Verdana, sans-serif;
+  font-family: "nyt-franklin", Helvetica, Verdana, sans-serif;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  position: relative;
+  min-height: 50px;
+}
+
+/* Theme Switch */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: absolute;
+  right: 20px;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked + .slider {
+  background-color: #00a6ff;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  transition: all 0.4s;
+  height: 5px;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #d3d6da;
   margin: 0;
 }
+
 h1 {
-  font-size: 1.2em;
-  padding: 20px 0;
+  font-size: 1em;
+  padding: 2px 0;
   border-bottom: 1px solid #eee;
-  margin: 0 0 30px 0;
+  margin: 0 0 4px 0;
   color: #333;
 }
 
 .logo {
-  width: 200px;
-  margin: 20px auto;
+  width: 120px;
+  margin: 0;
   display: block;
 }
 
@@ -25,15 +160,15 @@ h1 {
 }
 .row > div {
   display: block;
-  width: 60px;
-  height: 60px;
-  border: 1px solid #bbb;
-  margin: 4px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #d3d6da;
+  margin: 2px;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 
 .row > div.green {
@@ -67,19 +202,20 @@ h1 {
 }
 
 .keypad {
-  max-width: 500px;
-  margin: 20px auto;
+  max-width: 420px;
+  margin: 8px auto;
 }
 .keypad > div {
-  margin: 5px;
-  width: 40px;
-  height: 50px;
-  background: #eee;
+  margin: 3px;
+  width: 35px;
+  height: 42px;
+  background: #d3d6da;
   display: inline-block;
-  border-radius: 6px;
-  line-height: 50px;
+  border-radius: 4px;
+  line-height: 42px;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 0.9em;
 }
 .keypad > div.green {
   background: #6baa64;
@@ -122,14 +258,7 @@ h1 {
 }
 
 .footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  background: #fff;
-  color: #242424;
-  text-align: center;
+  display: none;
 }
 
 .footer a {
@@ -151,12 +280,12 @@ h1 {
   0% {
     transform: rotateX(0);
     background: #fff;
-    border-color: #333;
+    border-color: #878a8c;
   }
   45% {
     transform: rotateX(90deg);
     background: white;
-    border-color: #333;
+    border-color: #878a8c;
   }
   55% {
     transform: rotateX(90deg);
@@ -185,6 +314,76 @@ h1 {
   }
   100% {
     transform: scale(1);
-    border-color: #333;
+    border-color: #878a8c;
   }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121213;
+  color: #ffffff;
+}
+
+body.dark-mode .divider {
+  background-color: #3a3a3c;
+}
+
+body.dark-mode h1 {
+  color: #ffffff;
+  border-bottom-color: #3a3a3c;
+}
+
+body.dark-mode .row > div {
+  background-color: #121213;
+  border-color: #3a3a3c;
+  color: #ffffff;
+}
+
+body.dark-mode .keypad > div {
+  background-color: #818384;
+  color: #ffffff;
+}
+
+body.dark-mode .keypad > div.green {
+  background: #538d4e;
+}
+
+body.dark-mode .keypad > div.yellow {
+  background: #b59f3b;
+}
+
+body.dark-mode .keypad > div.grey {
+  background: #3a3a3c;
+}
+
+body.dark-mode .row > div.green {
+  --background: #538d4e;
+  --border-color: #538d4e;
+}
+
+body.dark-mode .row > div.yellow {
+  --background: #b59f3b;
+  --border-color: #b59f3b;
+}
+
+body.dark-mode .row > div.grey {
+  --background: #3a3a3c;
+  --border-color: #3a3a3c;
+}
+
+body.dark-mode .modal div {
+  background: #121213;
+  color: #ffffff;
+}
+
+body.dark-mode .modal .solution {
+  color: #ffffff;
+}
+
+body.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #3a3a3c;
 }
